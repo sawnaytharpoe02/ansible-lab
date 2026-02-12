@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-LABEL maintainer="Soe Thura <thixpin@gmail.com>"
+LABEL maintainer="Saw Nay Thar Poe <sawnaytharhpoe02@gmail.com>"
 LABEL description="This is a Dockerfile to use as web server node for Ansible."
 
 # Overwrite default welcome page

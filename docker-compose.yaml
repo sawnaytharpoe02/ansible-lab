@@ -70,7 +70,7 @@ services:
       - "3306:3306"
     volumes:
       - ./authorized_keys:/root/.ssh/authorized_keys
-      - mysql_data:/var/lib/mysql
+      - mysql_node1_data:/var/lib/mysql
     networks:
       ansible_lab_network:
         ipv4_address: 172.20.0.13
@@ -84,3 +84,4 @@ networks:
 
 volumes:
   mysql_data:
+  mysql_node1_data:

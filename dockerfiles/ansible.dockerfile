@@ -1,7 +1,7 @@
 # Use Ubuntu as the base image
 FROM ubuntu:latest
 
-LABEL maintainer="Soe Thura <thixpin@gmail.com>"
+LABEL maintainer="Saw Nay Thar Poe <sawnaytharhpoe02@gmail.com>"
 LABEL description="This is a Dockerfile to use as a control node for Ansible."
 
 # Update and install Ansible
