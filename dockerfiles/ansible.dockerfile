@@ -1,7 +1,7 @@
 # Use Ubuntu as the base image
 FROM ubuntu:latest
 
-LABEL maintainer="Soe Thura <thixpin@gmail.com>"
+LABEL maintainer="Saw Nay Thar Poe <sawnaytharhpoe02@gmail.com>"
 LABEL description="This is a Dockerfile to use as a control node for Ansible."
 
 # Update and install Ansible
@@ -19,5 +19,13 @@ RUN usermod -aG sudo ubuntu && \
 
 RUN mkdir -p /home/ubuntu/playbooks && \
     chown -R ubuntu:ubuntu /home/ubuntu/playbooks
+
+COPY playbooks/sshkey /home/ubuntu/.ssh/id_rsa
+RUN chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa && \
+    chmod 600 /home/ubuntu/.ssh/id_rsa
+
+ENV ANSIBLE_HOST_KEY_CHECKING=False
+ENV ANSIBLE_CONFIG=/home/ubuntu/playbooks/ansible.cfg
+ENV ANSIBLE_PYTHON_INTERPRETER=auto_silent
 
 WORKDIR /home/ubuntu

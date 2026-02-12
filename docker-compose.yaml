@@ -5,7 +5,7 @@ services:
   control_node:
     build:
       context: .
-      dockerfile: dockerfiles/ansible.dockerfile  # Path to the Dockerfile
+      dockerfile: dockerfiles/ansible.dockerfile # Path to the Dockerfile
     image: control-node
     container_name: control_node
     tty: true
@@ -16,11 +16,11 @@ services:
     networks:
       ansible_lab_network:
         ipv4_address: 172.20.0.10
-    
+
   web_node1:
     build:
       context: .
-      dockerfile: dockerfiles/nginx.dockerfile  # Path to the Dockerfile
+      dockerfile: dockerfiles/nginx.dockerfile # Path to the Dockerfile
     image: nginx-ssh
     container_name: web_node1
     volumes:
@@ -37,7 +37,7 @@ services:
     networks:
       ansible_lab_network:
         ipv4_address: 172.20.0.12
-    
+
   db_base:
     image: mysql:latest
     container_name: db_base
@@ -55,7 +55,7 @@ services:
   db_node1:
     build:
       context: .
-      dockerfile: dockerfiles/mysql.dockerfile  # Path to the Dockerfile
+      dockerfile: dockerfiles/mysql.dockerfile # Path to the Dockerfile
     image: mysql-ssh
     container_name: db_node1
     platform: linux/x86_64
@@ -67,10 +67,10 @@ services:
       MYSQL_USER: ansible_user
       MYSQL_PASSWORD: ansible_db_password
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - ./authorized_keys:/root/.ssh/authorized_keys
-      - mysql_data:/var/lib/mysql
+      - mysql_node1_data:/var/lib/mysql
     networks:
       ansible_lab_network:
         ipv4_address: 172.20.0.13
@@ -84,3 +84,4 @@ networks:
 
 volumes:
   mysql_data:
+  mysql_node1_data:
