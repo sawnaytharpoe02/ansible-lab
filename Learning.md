@@ -27,10 +27,10 @@ graph TD
     CN -- "SSH (RSA Key)" --> WN2
     CN -- "SSH (RSA Key)" --> DB1
 
-    style CN fill:#f96,stroke:#333,stroke-width:4px
-    style WN1 fill:#bbf,stroke:#333
-    style WN2 fill:#bbf,stroke:#333
-    style DB1 fill:#dfd,stroke:#333
+    style CN fill:#000,stroke:#333,stroke-width:4px
+    style WN1 fill:#000,stroke:#333
+    style WN2 fill:#000,stroke:#333
+    style DB1 fill:#000,stroke:#333
 ```
 
 - **Control Node:** Ansible run သည့်စက်။ Managed nodes များဆီသို့ အမိန့်များပေးပို့သည်။
