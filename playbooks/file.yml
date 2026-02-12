@@ -5,4 +5,4 @@
     - name: create a file
       copy:
         dest: /usr/share/nginx/html/file.txt
-        content: "This file is created with Ansible by KT"
+        content: "This file is created with Ansible by SNTP"

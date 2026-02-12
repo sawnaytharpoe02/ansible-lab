@@ -1,0 +1,9 @@
+---
+- hosts: web_node1
+  become: true
+  tasks:
+    - name: insert line in file
+      lineinfile:
+        path: /usr/share/nginx/html/file.txt
+        line: "This line is inserted with Ansible by SNTP"
+        insertbefore: BOF

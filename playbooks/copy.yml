@@ -1,0 +1,9 @@
+---
+- hosts: web_nodes
+  become: true
+  tasks:
+    - name: copy file in remote server
+      copy:
+        src: /usr/share/nginx/html/file.txt
+        dest: /usr/share/nginx/html/file-copy.txt
+        remote_src: true

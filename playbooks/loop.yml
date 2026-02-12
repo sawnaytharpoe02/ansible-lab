@@ -1,0 +1,11 @@
+---
+- name: Loop through DevOps tools
+  hosts: localhost
+  connection: local
+  vars:
+    tools: ["Docker", "Kubernetes", "Ansible", "Jenkins", "Git"]
+  tasks:
+    - name: Print DevOps tools
+      debug:
+        msg: "I use {{ item }} for DevOps."
+      loop: "{{ tools }}"

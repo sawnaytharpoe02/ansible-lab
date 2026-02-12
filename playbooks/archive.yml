@@ -1,0 +1,9 @@
+---
+- hosts: web_nodes
+  become: true
+  tasks:
+    - name: create a tar archive
+      archive:
+        path: /usr/share/nginx/html
+        dest: /usr/share/nginx/demo.tar.gz
+        format: gz

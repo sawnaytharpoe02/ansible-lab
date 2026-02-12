@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: local
+  name: 'Am I developer or not?'
+  vars:
+    user: developer
+  tasks:
+    - name: 'check if I am developer'
+      debug:
+        msg: "Yes, you are a developer."
+      when: user == "developer"
+
+    - name: 'check if I am not developer'
+      debug:
+        msg: "No, you are not a developer."
+      when: user != "developer"

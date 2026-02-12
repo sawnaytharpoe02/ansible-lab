@@ -1,0 +1,22 @@
+---
+- hosts: web_nodes
+  become: true
+  tasks:
+    - name: Install nginx service on all web server
+      apk:
+        name: nginx
+        state: present
+    
+    - name: Update nginx configuration file
+      lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: 'keepalive_timeout'
+        line: 'keepalive_timeout 120'
+      notify:
+        - restart nginx
+        
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
